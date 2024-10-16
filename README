@@ -31,7 +31,7 @@ Testing was done to assure that the same or a similar thing doe not occur with t
 - The headers do not exist in the downloaded CSV file and, thus, we have to apply the headers, in the correct order, ourselves. From inspection the schema has never changed, so this is an acceptable method.
 
 
-- For the Property ID, a combination of Postcode, PAON and SAON is robust enough. This combination is tested and is unique for a given property. It would also allow us to see any potential addresses that have updated/changed/missing Street/District/Town_City/County fields, via duplicated Property IDs. I beleive this will be important, however, as it stands after some testing, I cant see any cases of this.
+- For the Property ID, a combination of Postcode, PAON and SAON is robust enough. This combination is tested and is unique for a given property. It would also allow us to see any potential addresses that have updated/changed/missing Street/District/Town_City/County fields, via duplicated Property IDs, if we were to group by all these fields rather than just postcode/PAON/SAON. I beleive this could be important, however, as it stands after some testing, I cant see any cases of this.
 
 
 - The records in the json have been sorted by date of transaction - this is not entirely necessary and can be removed, but does help visualising the json.
