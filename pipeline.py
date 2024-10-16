@@ -127,7 +127,7 @@ output_directory = f"Pipeline_Output/{timestamp}"
 with beam.Pipeline() as pipeline:
     data = (
         pipeline # CURRENTLY READING DATA WITH MORE THAN 1 TRANSACTION PER PROPERTY
-        | 'Read CSV File' >> beam.io.ReadFromText('./filtered_rows_N12.csv', skip_header_lines=1)  # Reading CSV file, skipping the header line
+        | 'Read CSV File' >> beam.io.ReadFromText('./filtered_rows_N12.csv', skip_header_lines=0)  # Reading CSV file, skipping the header line
         | 'Parse CSV Lines' >> beam.Map(parse_csv_line)  # Parse each line
         | 'Group Transactions' >> beam.ParDo(GroupTransactionsByProperty())  # Group transactions by property
         | 'Group By Key' >> beam.GroupByKey()  # Group transactions by (postcode, PAON, SAON) key
